@@ -1,2 +1,8 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |post| %>
+  <h3><%= link_to "#{post.title}", post_path(id: post.id) %></h3>
+  <%= post.content %> @ <%= post.created_at %>
+  <hr>
+<% end %>

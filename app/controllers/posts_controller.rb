@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order("votes desc")
     @posts_count = Post.count
   end
 
@@ -35,5 +35,19 @@ class PostsController < ApplicationController
   def delete
     @post = Post.find_by id: params[:id]
     @post.destroy ? (redirect_to posts_path) : (render :edit)
+  end
+
+  def upcount
+    @post = Post.find_by id: params[:id]
+    @post.votes += 1
+    @post.save
+    redirect_to(:back)
+  end
+
+  def downcount
+    @post = Post.find_by id: params[:id]
+    @post.votes > 0 ? (@post.votes -= 1) : (@post.votes)
+    @post.save
+    redirect_to(:back)
   end
 end

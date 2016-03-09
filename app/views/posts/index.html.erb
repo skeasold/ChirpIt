@@ -15,10 +15,16 @@
         <td>
           <div class="row valign-wrapper">
             <div class="col s2 valign">
-              <p class="center-align counter"><i class="tiny material-icons center-align">thumb_up</i></p>
-              <p class="center-align counter">Counter </p>
-              <p class="center-align counter"><i class="tiny material-icons center-align">thumb_down</i></p>
-              <p class="center-align"><small><%= pluralize post.views, 'view' %></small></p>
+              <%= link_to up_post_path(id: post.id), method: :patch do %>
+                <p class="center-align counter grey-text text-darken-3">
+                <i class="tiny material-icons center-align">thumb_up</i></p>
+              <% end %>
+              <p class="center-align counter"><%= pluralize post.votes, "vote" %></p>
+              <%= link_to down_post_path(id: post.id), method: :patch do %>
+                <p class="center-align counter grey-text text-darken-3">
+                <i class="tiny material-icons center-align">thumb_down</i></p>
+              <% end %>
+              <p class="center-align"><small><%= pluralize post.views, "view" %></small></p>
             </div>
             <div class="col s10">
               <h5><%= link_to "#{post.title}", post_path(id: post.id),

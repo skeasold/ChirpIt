@@ -1,10 +1,10 @@
 <div class="row valign-wrapper">
   <div class="col s8">
     <h4><%= @post.title %></h4>
-    Viewed <%= pluralize @post.views, 'time' %>.
+    Viewed <%= pluralize @post.views, 'time' %> with <%= pluralize @post.votes, 'vote' %>.
   </div>
   <div class="col s4">
-    <%= link_to "Return to Tending", posts_path,
+    <%= link_to "Return to Trending", posts_path,
     :class => "waves-effect waves-light btn grey lighten-1 right z-depth-0" %>
   </div>
 </div>
@@ -14,6 +14,9 @@
 </blockquote>
 
 <div class="bottom_nav">
-<%= link_to "Edit", edit_post_path,
-:class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+  <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
+  :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+
+  <%= link_to "Edit", edit_post_path,
+  :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
 </div>

@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def upcount
-    @posts = Post.all
     @post = Post.find_by id: params[:id]
     @post.votes += 1
     @post.save
@@ -46,7 +45,6 @@ class PostsController < ApplicationController
   end
 
   def downcount
-    @post = Post.all
     @post = Post.find_by id: params[:id]
     @post.votes > 0 ? (@post.votes -= 1) : (@post.votes)
     @post.save

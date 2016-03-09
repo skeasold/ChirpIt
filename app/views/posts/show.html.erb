@@ -1,2 +1,18 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row valign-wrapper">
+  <div class="col s8">
+    <h4><%= @post.title %></h4>
+  </div>
+  <div class="col s4">
+    <%= link_to "Return to Tending", posts_path,
+    :class => "waves-effect waves-light btn grey lighten-1 right z-depth-0" %>
+  </div>
+</div>
+
+<blockquote>
+  <%= @post.content %>
+</blockquote>
+
+<div class="bottom_nav">
+<%= link_to "Edit", edit_post_path,
+:class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+</div>

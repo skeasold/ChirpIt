@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Reddit</title>
+  <title>Reddit2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
-<%= yield %>
-
+<header>
+  <nav class="z-depth-0">
+    <div class="nav-wrapper grey lighten-4">
+      <%= link_to "Reddit2", root_path, :class => "grey-text text-darken-3 brand-logo" %>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path, :class => "grey-text text-darken-3" %></li>
+        <li><%= link_to "Trending Posts (#{Post.count})", posts_path,
+          :class => "grey-text text-darken-3" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container grey-text text-darken-2">
+    <%= yield %>
+  </div>
+</main>
+  <footer class="page-footer grey lighten-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12 grey-text">
+          <h5>Reddit2</h5>
+          <div class="container grey-text left">
+          © <%= Time.now.year %> <%= link_to "Skylar King", "http://www.skylarcking.com",
+          :class => "grey-text text-darken-3" %>
+          </div>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <ul>
+            <li><%= link_to "View on Github", "https://github.com/skylarking/Reddit",
+            :class => "grey-text text-darken-3" %></li>
+            <li><%= link_to "Report an Issue", "https://github.com/skylarking/Reddit/issues/new",
+            :class => "grey-text text-darken-3" %></li>
+            <li><%= link_to "License", "#", :class => "grey-text text-darken-3" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

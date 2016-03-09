@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("votes desc")
+    @posts = Post.all.order("votes desc").page params[:page]
     @posts_count = Post.count
   end
 

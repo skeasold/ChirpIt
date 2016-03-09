@@ -47,3 +47,4 @@ group :development do
 end
 
 gem 'materialize-sass'
+gem 'kaminari'

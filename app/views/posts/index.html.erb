@@ -18,6 +18,7 @@
               <p class="center-align counter"><i class="tiny material-icons center-align">thumb_up</i></p>
               <p class="center-align counter">Counter </p>
               <p class="center-align counter"><i class="tiny material-icons center-align">thumb_down</i></p>
+              <p class="center-align"><small><%= pluralize post.views, 'view' %></small></p>
             </div>
             <div class="col s10">
               <h5><%= link_to "#{post.title}", post_path(id: post.id),

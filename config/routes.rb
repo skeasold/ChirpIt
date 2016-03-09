@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'license/index'
+
   root 'posts#index'
 
   get '/posts' => 'posts#index', as: :posts
@@ -10,4 +12,5 @@ Rails.application.routes.draw do
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#delete'
 
+  get '/license' => 'license#index', as: :license
 end

@@ -1,1 +1,35 @@
 @import "materialize";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-weight: 200;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.nav-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.nav-wrapper ul li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h4 {
+  font-weight: 200;
+  margin: 25px 0px 25px 0px;
+}
+h5 {
+  font-weight: 200;
+}
+.counter {
+  margin: 5px 0px 5px 0px;
+}
+.row {
+  margin: 0px;
+}

@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def upcount
     @posts = Post.all
     @post = Post.find_by id: params[:id]
-    @post.votes = @post.votes + 1
+    @post.votes += 1
     @post.save
     redirect_to(:back)
   end
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   def downcount
     @post = Post.all
     @post = Post.find_by id: params[:id]
-    @post.votes > 0 ? (@post.votes = @post.votes - 1) : (@post.votes)
+    @post.votes > 0 ? (@post.votes -= 1) : (@post.votes)
     @post.save
     redirect_to(:back)
   end

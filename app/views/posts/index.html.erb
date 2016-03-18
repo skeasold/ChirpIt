@@ -8,6 +8,8 @@
   </div>
 </div>
 
+<%= render partial: 'flash' %>
+
 <table class="striped">
   <tbody>
     <% @posts.each do |post| %>
@@ -39,3 +41,8 @@
     <% end %>
   </tbody>
 </table>
+<div class="col s12 center-align pagination z-depth-0">
+  <%= paginate @posts, :outer_window => 3 %>
+  <p><%= page_entries_info @posts, :entry_name => 'item' %></p>
+</div>
+</div>

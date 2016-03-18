@@ -12,7 +12,12 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.title = params[:post][:title]
     @post.content = params[:post][:content]
-    @post.save ? (redirect_to posts_path) : (render :new)
+    if @post.save
+      flash[:notice] = "Post successfully created"
+      (redirect_to posts_path)
+    else
+      (render :new)
+    end
   end
 
   def show

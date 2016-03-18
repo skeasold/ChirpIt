@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   post '/posts' => 'posts#create'
   get '/posts/:id/edit' => 'posts#edit', as: :edit_post
   patch '/posts/:id' => 'posts#update'
-  
+  delete '/posts/:id' => 'posts#delete'
+
   get 'posts/:id/upcount' => 'posts#upcount', as: :up_post
   patch 'posts/:id/upcount' => 'posts#upcount'
   get 'posts/:id/downcount' => 'posts#downcount', as: :down_post

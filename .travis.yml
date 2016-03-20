@@ -15,3 +15,5 @@ deploy:
     repo: skylarking/Reddit
   run:
     - "rake db:migrate"
+notifications:
+  email: false

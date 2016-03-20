@@ -37,7 +37,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rails-erd'
-  gem 'rails_admin'
 end
 
 group :development do
@@ -52,3 +51,4 @@ gem 'materialize-sass'
 gem 'kaminari'
 gem 'badgerbadgerbadger'
 gem 'devise'
+gem 'rails_admin'

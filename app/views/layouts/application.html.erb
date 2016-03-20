@@ -13,7 +13,7 @@
     <div class="nav-wrapper grey lighten-4">
       <%= link_to "Reddit2", root_path, :class => "grey-text text-darken-3 brand-logo" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Home", root_path, :class => "grey-text text-darken-3" %></li>
+        <li><%= link_to "Home", root_path, :class => "grey-text text-darken-3"%></li>
         <li><%= link_to "Trending Posts (#{Post.count})", posts_path,
           :class => "grey-text text-darken-3" %>
         </li>
@@ -44,6 +44,7 @@
             :class => "grey-text text-darken-3" %></li>
             <li><%= link_to "License", license_path, :class => "grey-text text-darken-3" %></li>
             <li><%= image_tag 'https://travis-ci.org/skylarking/Reddit.svg?branch=master' %></li>
+            <li><%= image_tag 'https://codeclimate.com/github/skylarking/Reddit/badges/gpa.svg' %></li>
           </ul>
         </div>
       </div>

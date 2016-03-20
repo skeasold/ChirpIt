@@ -16,7 +16,23 @@ class PostsController < ApplicationController
       flash[:notice] = "Post successfully created"
       (redirect_to posts_path)
     else
+      flash[:alert] = "There was a problem creating your post."
       (render :new)
+    end
+  end
+
+  def create_comment
+    @post = Post.find_by id: params[:id]
+    @comment = Comment.new
+    @comment.comment_content = params[:comment][:comment_content]
+    @comment.post_id = @post.id
+
+    if @comment.save
+      flash[:notice] = "Comment successfully created"
+      (redirect_to post_path(id: @post.id))
+    else
+      flash[:alert] = "There was a problem creating your comment."
+      render :show
     end
   end
 
@@ -24,6 +40,8 @@ class PostsController < ApplicationController
     @post = Post.find_by id: params[:id]
     @post.views = @post.views + 1
     @post.save
+    @comment = Comment.new
+    @comment.post = @post
   end
 
   def edit

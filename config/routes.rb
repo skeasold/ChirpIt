@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   root 'posts#index'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   get '/posts/:id/edit' => 'posts#edit', as: :edit_post
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#delete'
+
+  post 'post/:id/comments' => 'posts#create_comment', as: :comments
 
   get 'posts/:id/upcount' => 'posts#upcount', as: :up_post
   patch 'posts/:id/upcount' => 'posts#upcount'

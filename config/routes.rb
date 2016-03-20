@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'license/index'
+  devise_for :users
 
   root 'posts#index'
 

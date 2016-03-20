@@ -22,4 +22,9 @@ Rails.application.routes.draw do
 
   get '/license' => 'license#index', as: :license
 
+  namespace :api do
+    get 'posts' => 'posts#index'
+    get 'posts/:id' => 'posts#show'
+  end
+
 end

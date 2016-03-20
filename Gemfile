@@ -49,3 +49,4 @@ end
 gem 'materialize-sass'
 gem 'kaminari'
 gem 'badgerbadgerbadger'
+gem 'devise'

@@ -18,10 +18,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "Post successfully created"
-      (redirect_to posts_path)
+      redirect_to posts_path
     else
       flash[:alert] = "There was a problem creating your post."
-      (render :new)
+      render :new
     end
   end
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
     if @comment.save
       flash[:notice] = "Comment successfully created"
-      (redirect_to post_path(id: @post.id))
+      redirect_to post_path(id: @post.id)
     else
       flash[:alert] = "There was a problem creating your comment."
       render :show

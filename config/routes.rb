@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get 'posts/:id/downcount' => 'posts#downcount', as: :down_post
   patch 'posts/:id/downcount' => 'posts#downcount'
 
+  get '/users' => 'users#index', as: :users
+  get '/users/:id' => 'users#show', as: :user
+
   get '/license' => 'license#index', as: :license
 
   use_doorkeeper

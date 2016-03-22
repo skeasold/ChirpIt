@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  # TODO: Add tests
+  # TODO: Add search
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -15,12 +18,13 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.title = params[:post][:title]
     @post.content = params[:post][:content]
+    @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "Post successfully created"
-      (redirect_to posts_path)
+      redirect_to posts_path
     else
       flash[:alert] = "There was a problem creating your post."
-      (render :new)
+      render :new
     end
   end
 
@@ -32,7 +36,7 @@ class PostsController < ApplicationController
 
     if @comment.save
       flash[:notice] = "Comment successfully created"
-      (redirect_to post_path(id: @post.id))
+      redirect_to post_path(id: @post.id)
     else
       flash[:alert] = "There was a problem creating your comment."
       render :show
@@ -71,15 +75,13 @@ class PostsController < ApplicationController
 
   def upcount
     @post = Post.find_by id: params[:id]
-    @post.votes += 1
-    @post.save
-    redirect_to(:back)
+    (@post.votes += 1) && (@post.save) if @post.user_id != current_user.id
+    redirect_to :back
   end
 
   def downcount
     @post = Post.find_by id: params[:id]
-    @post.votes > 0 ? (@post.votes -= 1) : (@post.votes)
-    @post.save
-    redirect_to(:back)
+    (@post.votes -= 1) && (@post.save) if (@post.user_id != current_user.id) && (@post.votes > 0)
+    redirect_to :back
   end
 end

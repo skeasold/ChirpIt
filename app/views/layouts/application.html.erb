@@ -14,13 +14,20 @@
     <div class="nav-wrapper grey lighten-4">
       <%= link_to "ChirpIt", root_path, :class => "grey-text text-darken-3 brand-logo" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Home", root_path, :class => "grey-text text-darken-3"%></li>
-        <li><%= link_to "Trending Posts (#{Post.count})", posts_path,
+        <li><%= link_to "About ChirpIt", about_path, :class => "grey-text text-darken-3" %></li>
+        <li><%= link_to "Trending Feed (#{Post.count})", posts_path,
           :class => "grey-text text-darken-3" %>
         </li>
-        <li><%= link_to "Sign Up", new_user_registration_path, :class => "grey-text text-darken-3" %></li>
-        <li><%= link_to "Sign In", new_user_session_path, :class => "grey-text text-darken-3" %></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
+        <% if !user_signed_in? %>
+          <li><%= link_to "Sign Up", new_user_registration_path, :class => "grey-text text-darken-3" %></li>
+          <li><%= link_to "Sign In", new_user_session_path, :class => "grey-text text-darken-3" %></li>
+        <% end %>
+        <% if user_signed_in? %>
+          <li><%= link_to "My Feed", user_path(id: current_user.id), :class => "grey-text text-darken-3" %></li>
+          <li><%= link_to "New Post", new_post_path, :class => "grey-text text-darken-3" %></li>
+          <li><%= link_to "Edit Profile", edit_user_registration_path, :class => "grey-text text-darken-3" %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
+        <% end %>
       </ul>
     </div>
   </nav>

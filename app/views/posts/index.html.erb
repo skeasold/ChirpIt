@@ -1,10 +1,6 @@
 <div class="row valign-wrapper">
-  <div class="col s8">
-    <h4>Trending Posts (<%= Post.count %>)</h4>
-  </div>
-  <div class="col s4">
-    <%= link_to "New Post", new_post_path,
-    :class => "waves-effect waves-light btn grey lighten-1 right z-depth-0" %>
+  <div class="col s12">
+    <h4>Trending Feed (<%= Post.count %>)</h4>
   </div>
 </div>
 
@@ -26,16 +22,17 @@
                 <p class="center-align counter grey-text text-darken-3">
                 <i class="tiny material-icons center-align">thumb_down</i></p>
               <% end %>
-              <p class="center-align"><small><%= pluralize post.views, "view" %></small></p>
-              <p class="center-align"><small><%= pluralize post.comments.count, "comment" %></small></p>
+              <p class="center-align">
+                <small><%= pluralize post.views, "view" %></small><br>
+                <small><%= pluralize post.comments.count, "comment" %></small>
+              </p>
             </div>
             <div class="col s10">
               <h5><%= link_to "#{post.title}", post_path(id: post.id),
               :class => "grey-text text-darken-3" %></h5>
               <%= truncate post.content, length: 250 %>
-              <br>
-              <%= post.user.email %> @
-              <%= distance_of_time_in_words post.updated_at, Time.now %> ago
+              <br><small>Updated <%= distance_of_time_in_words post.updated_at, Time.now %>
+              ago by <%= link_to "#{post.user.email}", user_path(id: post.user.id) %></small>
             </div>
           </div>
         </td>
@@ -43,8 +40,6 @@
     <% end %>
   </tbody>
 </table>
-<div class="col s12 center-align pagination z-depth-0">
-  <%= paginate @posts, :outer_window => 3 %>
-  <p><%= page_entries_info @posts, :entry_name => 'item' %></p>
-</div>
+<div class="pagination center-align grey-text text-darken-3">
+  <%= paginate @posts, :outer_window => 5 %>
 </div>

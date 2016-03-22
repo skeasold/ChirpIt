@@ -27,6 +27,7 @@
                 <i class="tiny material-icons center-align">thumb_down</i></p>
               <% end %>
               <p class="center-align"><small><%= pluralize post.views, "view" %></small></p>
+              <p class="center-align"><small><%= pluralize post.comments.count, "comment" %></small></p>
             </div>
             <div class="col s10">
               <h5><%= link_to "#{post.title}", post_path(id: post.id),

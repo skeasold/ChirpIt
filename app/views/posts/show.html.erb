@@ -14,16 +14,18 @@
 </blockquote>
 
 <div class="comments">
-  <%= form_for @comment do |f| %>
-      <form>
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.label :comment_conent %><br>
-            <%= f.text_area :comment_content %>
+  <% if @post.user == current_user %>
+    <%= form_for @comment do |f| %>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <%= f.label :comment_conent %><br>
+              <%= f.text_area :comment_content %>
+            </div>
           </div>
-        </div>
-        <%= f.submit class: "waves-effect waves-light btn grey lighten-1 left z-depth-0" %>
-      </form>
+          <%= f.submit class: "waves-effect waves-light btn grey lighten-1 left z-depth-0" %>
+        </form>
+    <% end %>
   <% end %>
 
   <ul>
@@ -33,9 +35,12 @@
 </div>
 
 <div class="bottom_nav">
-  <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
-  :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
-
-  <%= link_to "Edit", edit_post_path,
-  :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+  <% if user_signed_in? %>
+    <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
+    :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+  <% end %>
+  <% if @post.user == current_user %>
+    <%= link_to "Edit", edit_post_path,
+    :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
+  <% end %>
 </div>

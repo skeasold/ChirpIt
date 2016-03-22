@@ -34,7 +34,7 @@
               <%= post.content %>
               <br>
               <%= post.user.email %> @
-              <%= distance_of_time_in_words post.created_at, Time.now %> ago
+              <%= distance_of_time_in_words post.updated_at, Time.now %> ago
             </div>
           </div>
         </td>

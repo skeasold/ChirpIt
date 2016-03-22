@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order("votes desc").page params[:page]
     @posts_count = Post.count
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
@@ -22,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create_comment
-    @post = Post.find_by id: params[:id]
+    @post = current_user.posts.build id: params[:id]
     @comment = Comment.new
     @comment.comment_content = params[:comment][:comment_content]
     @comment.post_id = @post.id
@@ -45,18 +48,24 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by id: params[:id]
+    @post = current_user.posts.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(root_path, :alert => 'Post does not exist or you do not have access.')
   end
 
   def update
-    @post = Post.find_by id: params[:id]
+    @post = current_user.posts.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(root_path, :alert => 'Post does not exist or you do not have access.')
     @post.title = params[:post][:title]
     @post.content = params[:post][:content]
     @post.save ? (redirect_to posts_path) : (render :edit)
   end
 
   def delete
-    @post = Post.find_by id: params[:id]
+    @post = current_user.posts.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(root_path, :alert => 'Post does not exist or you do not have access.')
     @post.destroy ? (redirect_to posts_path) : (render :edit)
   end
 

@@ -6,3 +6,14 @@ addons:
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: YUaZ5ujHgmB79tQNuWHlidFYvkFePoqqJKQD+CpsfMjdJGEUORHE6/xTMerzq2w60ocO7sHAwjw3WUVAKLSquxhA9nNYP6RErO0oFwvKJkm1mhrGTBIrOvZlfd3yV0H+O6WrM/T92hE8pK1egmUAmHY+OQv/DKnG1ThS4AHWte2s+2jIEZQNYMLiiQal/jB+Wrd/++jWHE6sZl+4NVhHZwZtgSjkrloyFonKmbVKIY5tTGCdaoIAZmeLVw9heZ4vvBy8Ulg3m7HpRfgKuz55YP7oR90I/PFKyCGfzwaV0v6aQB4cexfA1PG0Qn/s/3oFTRxQEcdx/1Gtpx+7o8PEFKRgTUCXNhUbkJDdN9VTGzmaWic0zMrVY0HsCNk2STCrsLZJSdM/FRaTBjk/Lql6/TX3oiFhfoJxpEE2zeYGpwnQr/ZpDuk0xMBpGf5WW5G8T6j9Ewx4ML8ZQH+YZXatwwb8kTzq1FJN6IR3IvIujz4ncG2EDH5t9TSp8DsfXzPuAs4GhXBL+4n+0ZBquJTuJ8ZoiHY0q77MCPJn1Dk21+34sjZL3X7dIpAdUAZ2i3l+xkPVLRQb0eCGeL9eOAWnRVNsXZES2SfWDNed66vTujsXaZKB9/XgW0uc98kdRZuXXCPAKcNYuO03s2E0S/Fg/IBpqu6G9TELdEhqm/OT8v0=
+  app: sking-chirpit
+  on:
+    repo: skylarking/ChirpIt
+  run:
+    - "rake db:migrate"
+  notifications:
+    email: false

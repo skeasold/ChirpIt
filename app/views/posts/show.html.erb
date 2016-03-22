@@ -10,7 +10,7 @@
 </blockquote>
 
 <div class="comments">
-  <% if @post.user == current_user %>
+  <% if user_signed_in? %>
     <%= form_for @comment do |f| %>
         <form>
           <div class="row">
@@ -31,7 +31,7 @@
 </div>
 
 <div class="bottom_nav">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @post.user != current_user %>
     <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
     :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
   <% end %>

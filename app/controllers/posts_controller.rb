@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  # TODO: Add tests
+  # TODO: Add search
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index

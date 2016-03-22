@@ -4,8 +4,10 @@ class Api::RegistrationsController < ApplicationController
 
   def create
     @user = User.new params.require(:user).permit(:email, :password)
+
     # TODO: Chnge permit by email to username and set email to username. this
     # is for assignment completion only.
+    
     if @user.save
       render :user
     else

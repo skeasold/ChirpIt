@@ -34,7 +34,7 @@
               :class => "grey-text text-darken-3" %></h5>
               <%= truncate post.content, length: 250 %>
               <br>
-              <%= post.user.email %> @
+              <%= link_to "#{post.user.email}", user_path(id: post.user.id) %> @
               <%= distance_of_time_in_words post.updated_at, Time.now %> ago
             </div>
           </div>
@@ -43,8 +43,6 @@
     <% end %>
   </tbody>
 </table>
-<div class="col s12 center-align pagination z-depth-0">
-  <%= paginate @posts, :outer_window => 3 %>
-  <p><%= page_entries_info @posts, :entry_name => 'item' %></p>
-</div>
+<div class="pagination center-align grey-text text-darken-3">
+  <%= paginate @posts, :outer_window => 5 %>
 </div>

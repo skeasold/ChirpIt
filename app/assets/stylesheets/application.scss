@@ -48,3 +48,13 @@ blockquote {
   color: #81c784;
   padding: 25px;
 }
+.pagination {
+  box-shadow: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+  margin: 0;
+  a {
+    color: black;
+  }
+}

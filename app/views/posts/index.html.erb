@@ -32,7 +32,7 @@
             <div class="col s10">
               <h5><%= link_to "#{post.title}", post_path(id: post.id),
               :class => "grey-text text-darken-3" %></h5>
-              <%= post.content %>
+              <%= truncate post.content, length: 250 %>
               <br>
               <%= post.user.email %> @
               <%= distance_of_time_in_words post.updated_at, Time.now %> ago

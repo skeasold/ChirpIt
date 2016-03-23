@@ -35,4 +35,15 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
+  def block
+    @user = User.find(params[:id])
+    current_user.block(@user)
+    redirect_to :back
+  end
+
+  def unblock
+    @user = User.find(params[:id])
+    current_user.unblock(@user)
+    redirect_to :back
+  end
 end

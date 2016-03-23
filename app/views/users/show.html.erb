@@ -2,6 +2,8 @@
 
 <%= link_to "Follow", follow_user_path(@user)%>
 <%= link_to "Unfollow", unfollow_user_path(@user)%>
+<%= link_to "Block", block_user_path(@user)%>
+<%= link_to "Unblock", unblock_user_path(@user)%>
 <p>
 Following: <%= @user.follow_count %>
 Followers: <%= @user.followers_count %>

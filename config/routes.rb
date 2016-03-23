@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get '/users' => 'users#index', as: :users
   get '/users/:id' => 'users#show', as: :user
 
-  get '/license' => 'public#license', as: :license
   get '/about' => 'public#about', as: :about
 
   use_doorkeeper

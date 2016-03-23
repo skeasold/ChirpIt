@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require materialize-sprockets
 
 $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');

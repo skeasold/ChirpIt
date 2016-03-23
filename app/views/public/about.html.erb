@@ -4,16 +4,70 @@
   </div>
 </div>
 
-<p>ChirpIt is my take on integrating Twitter and Reddit functionality.</p>
-
-<p>Users are able to sign up and post their thoguhts. Users are able to follow other users
-  and view thier posts along with those they follow within thier feed.</p>
-
-<p>A Trending Feed is a collection of all user posts. Users are able to browse
-  this feed and vote on all other posts which will either increase or decrease
-  the posts' position within the trending feed. Users are also able to comment
-  on posts to start a conversation.</p>
-
-<p>Viewers are able to view the Trending Feed but are unable to post comments, add
-  new posts, vote or follow other users. Users can edit only their post and comment content 
-  and are unable to vote for their own posts.<p>
+<ul class="collapsible z-depth-0" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">info</i>About ChirpIt</div>
+    <div class="collapsible-body">
+      <p>ChirpIt is my take on integrating Twitter and Reddit functionality.</p>
+      <p>Users are able to sign up and post their thoguhts. Users are able to follow other users
+        and view thier posts along with those they follow within thier feed.</p>
+      <p>A Trending Feed is a collection of all user posts. Users are able to browse
+        this feed and vote on all other posts which will either increase or decrease
+        the posts' position within the trending feed. Users are also able to comment
+        on posts to start a conversation.</p>
+      <p>Viewers are able to view the Trending Feed but are unable to post comments, add
+        new posts, vote or follow other users. Users can edit only their post and comment content
+        and are unable to vote for their own posts.</p>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">code</i>Technologies </div>
+    <div class="collapsible-body">
+      <p>HTML5 & CSS3</p>
+      <p>Ruby on Rails</p>
+      <p>Materialize CSS</p>
+      <p>jQuery</p>
+      <p>PostgreSql</p>
+      <p>Travis CI & CodeClimate</p>
+      <p>Cool Gems - Devise, Doorkeeper, RailsAdmin</p>
+      <p><%= image_tag 'https://travis-ci.org/skylarking/ChirpIt.svg?branch=master' %>
+      <%= image_tag 'https://codeclimate.com/github/skylarking/Reddit/badges/gpa.svg' %></p>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">settings_ethernet</i>API</div>
+    <div class="collapsible-body">
+      <p>You can use our RESTful API to read and access ChirpIt data. OAuth is used for user
+        authenication and responses are in JSON.</p>
+      <p>Creating a User:<br>
+        POST http://sking-chirpit.herokuapp.com/api/users<br>
+        {user: {username: "UserName", password: "12345678"}}<br></p>
+      <p>Generating an OAuth Token:<br>
+        POST http://sking-chirpit.herokuapp.com/oauth/token<br>
+        {username: "UserName", password: "12345678", grant_type: "password"}<br></p>
+      <%# TODO: Add additional things a user can do with an API. %>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">language</i>MIT License</div>
+    <div class="collapsible-body">
+      <p>Copyright (c) 2016 Skylar King</p>
+      <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+      of this software and associated documentation files (the "Software"), to deal
+      in the Software without restriction, including without limitation the rights
+      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+      copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:</p>
+      <p>The above copyright notice and this permission notice shall be included in all
+      copies or substantial portions of the Software.</p>
+      <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+      SOFTWARE.</p>
+      <p>Updated March 8, 2016</p>
+    </div>
+  </li>
+</ul>

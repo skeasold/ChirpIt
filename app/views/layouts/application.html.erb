@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +13,8 @@
     <div class="nav-wrapper grey lighten-4">
       <%= link_to "ChirpIt", root_path, :class => "grey-text text-darken-3 brand-logo" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "About ChirpIt", about_path, :class => "grey-text text-darken-3" %></li>
-        <li><%= link_to "Trending Feed (#{Post.count})", posts_path,
-          :class => "grey-text text-darken-3" %>
-        </li>
+        <li><%= link_to "About", about_path, :class => "grey-text text-darken-3" %></li>
+        <li><%= link_to "Trending (#{Post.count})", posts_path, :class => "grey-text text-darken-3" %></li>
         <% if !user_signed_in? %>
           <li><%= link_to "Sign Up", new_user_registration_path, :class => "grey-text text-darken-3" %></li>
           <li><%= link_to "Sign In", new_user_session_path, :class => "grey-text text-darken-3" %></li>
@@ -25,8 +22,11 @@
         <% if user_signed_in? %>
           <li><%= link_to "My Feed", user_path(id: current_user.id), :class => "grey-text text-darken-3" %></li>
           <li><%= link_to "New Post", new_post_path, :class => "grey-text text-darken-3" %></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path, :class => "grey-text text-darken-3" %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
+          <li><a class="dropdown-button grey-text text-darken-3" href="#!" data-activates="account">My Account<i class="material-icons right">arrow_drop_down</i></a></li>
+            <ul id="account" class="dropdown-content">
+              <li><%= link_to "Edit Profile", edit_user_registration_path, :class => "grey-text text-darken-3" %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
+            </ul>
         <% end %>
       </ul>
     </div>
@@ -49,13 +49,11 @@
         </div>
         <div class="col l4 offset-l2 s12">
           <ul>
+            <li><%= link_to "About ChirpIt", about_path, :class => "grey-text text-darken-3" %></li>
             <li><%= link_to "View on Github", "https://github.com/skylarking/Reddit",
             :class => "grey-text text-darken-3" %></li>
             <li><%= link_to "Report an Issue", "https://github.com/skylarking/Reddit/issues/new",
             :class => "grey-text text-darken-3" %></li>
-            <li><%= link_to image_tag("http://img.shields.io/:license-mit-blue.svg"), license_path %></li>
-            <li><%= image_tag 'https://travis-ci.org/skylarking/ChirpIt.svg?branch=master' %></li>
-            <li><%= image_tag 'https://codeclimate.com/github/skylarking/Reddit/badges/gpa.svg' %></li>
           </ul>
         </div>
       </div>

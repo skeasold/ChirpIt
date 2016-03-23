@@ -58,3 +58,17 @@ blockquote {
     color: black;
   }
 }
+.collapsible {
+  border: none;
+}
+.collapsible-body {
+  border: none;
+  padding-top: 10px;
+  p {
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+}
+.page-footer {
+  padding-bottom: 15px;
+}

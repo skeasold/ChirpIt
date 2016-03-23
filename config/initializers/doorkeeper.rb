@@ -3,7 +3,12 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_from_credentials do
-    User.find_by(email: params[:username]).try(:authenticate, params[:password])
+    user = User.find_by(username: params[:username])
+    if user.present? && user.valid_password?(params[:password])
+      user
+    else
+      false
+    end
   end
 
   access_token_methods :from_bearer_authorization,:from_access_token_param, :from_bearer_param

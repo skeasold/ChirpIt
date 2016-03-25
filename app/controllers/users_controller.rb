@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-  # TODO: Add tests
-  # TODO: Add search
-
   before_action :authenticate_user!
 
   def index
@@ -11,16 +8,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
+    @followers = @user.followers
+
+    follower_ids = @user.following_users.pluck(:id)
+    all_ids = follower_ids << @user.id
+    @posts = Post.where(user_id: all_ids).order("created_at DESC")
+
     # TODO: Show user info
     # TODO: This may end up being a duplicate for the feed now that I think about it.
+
   end
 
   def feed
     @user = User.find_by id: params[:id]
+    @followers = @user.followers
     # TODO: Get users posts
     # TODO: Get posts from the users they follow
     # TODO: Prevent viewers from seeing the posts from the users they follow.
-    # TODO: Add act_as_follower somewhere
   end
 
   def follow

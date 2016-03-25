@@ -7,3 +7,7 @@
 <p>
 Following: <%= @user.follow_count %>
 Followers: <%= @user.followers_count %>
+
+<% @posts.each do |post| %>
+<li><%= post.title %></li>
+<% end %>

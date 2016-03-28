@@ -1,13 +1,23 @@
-<%= @user.email %>
+<div class="row valign-wrapper">
+  <div class="col s12">
+    <h4><%= @user.email %>'s Feed</h4>
+  </div>
+</div>
 
-<%= link_to "Follow", follow_user_path(@user)%>
-<%= link_to "Unfollow", unfollow_user_path(@user)%>
-<%= link_to "Block", block_user_path(@user)%>
-<%= link_to "Unblock", unblock_user_path(@user)%>
+<% if @user != current_user %>
+  <% if !@user.followed_by?(current_user) %>
+    <%= link_to "Follow", follow_user_path(@user)%>
+    <% else %>
+    You are following <%= @user.email %>
+  <% end %>
+  <% if @user.followed_by?(current_user) %>
+    <%= link_to "Unfollow", unfollow_user_path(@user)%>
+  <% end %>
+  <%= link_to "Block", block_user_path(@user)%>
+  <%= link_to "Unblock", unblock_user_path(@user)%>
+<% end %>
 <p>
 Following: <%= @user.follow_count %>
 Followers: <%= @user.followers_count %>
 
-<% @posts.each do |post| %>
-<li><%= post.title %></li>
-<% end %>
+<%= render partial: '/posts/feed' %>

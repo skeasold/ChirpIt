@@ -1,0 +1,34 @@
+<table class="striped">
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <div class="row valign-wrapper">
+            <div class="col s2 valign">
+              <%= link_to up_post_path(id: post.id), method: :patch do %>
+                <p class="center-align counter grey-text text-darken-3">
+                <i class="tiny material-icons center-align">thumb_up</i></p>
+              <% end %>
+              <p class="center-align counter"><%= pluralize post.votes, "vote" %></p>
+              <%= link_to down_post_path(id: post.id), method: :patch do %>
+                <p class="center-align counter grey-text text-darken-3">
+                <i class="tiny material-icons center-align">thumb_down</i></p>
+              <% end %>
+              <p class="center-align">
+                <small><%= pluralize post.views, "view" %></small><br>
+                <small><%= pluralize post.comments.count, "comment" %></small>
+              </p>
+            </div>
+            <div class="col s10">
+              <h5><%= link_to "#{post.title}", post_path(id: post.id),
+              :class => "grey-text text-darken-3" %></h5>
+              <%= truncate post.content, length: 250 %>
+              <br><small>Updated <%= distance_of_time_in_words post.updated_at, Time.now %>
+              ago by <%= link_to "#{post.user.email}", user_path(id: post.user.id) %></small>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

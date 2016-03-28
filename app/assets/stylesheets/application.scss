@@ -42,11 +42,16 @@ blockquote {
 }
 .alert {
   color: #C34C4C;
-  padding: 25px;
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: 400;
+  background-color: #F27272;
+  border-radius: 15px;
 }
 .notice {
   color: #81c784;
-  padding: 25px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 .pagination {
   box-shadow: none;

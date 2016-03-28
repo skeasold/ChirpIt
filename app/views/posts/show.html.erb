@@ -1,8 +1,12 @@
 <div class="row valign-wrapper">
   <div class="col s12">
     <h4><%= @post.title %></h4>
-    Viewed <%= pluralize @post.views, 'time' %> with <%= pluralize @post.votes, 'vote' %>.
-  </div>
+    Viewed <%= pluralize @post.views, 'time' %> with <%= pluralize @post.votes, 'vote' %>.<br>
+  <% if user_signed_in? && @post.user != current_user %>
+    <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
+    :class => "waves-effect waves-light btn grey lighten-1 z-depth-0 left" %>
+  <% end %>
+    </div>
 </div>
 
 <blockquote>
@@ -15,26 +19,25 @@
         <form>
           <div class="row">
             <div class="input-field col s12">
-              <%= f.label :comment_conent %><br>
-              <%= f.text_area :comment_content %>
+              <%= f.label :comment_content, "What do you think?" %><br>
+              <%= f.text_area :comment_content, :class => "materialize-textarea" %>
             </div>
           </div>
           <%= f.submit class: "waves-effect waves-light btn grey lighten-1 left z-depth-0" %>
         </form>
     <% end %>
   <% end %>
-
+  <br>
   <ul>
     <% @post.comments.each do |comment| %>
-  <li><%= comment.comment_content %> - <%= distance_of_time_in_words comment.created_at, Time.now %> ago</li> <% end %>
+      <li><%= comment.comment_content %> - <%= distance_of_time_in_words comment.created_at, Time.now %> ago by
+        <%= comment.user.email %>
+      </li>
+    <% end %>
   </ul>
 </div>
 
 <div class="bottom_nav">
-  <% if user_signed_in? && @post.user != current_user %>
-    <%= link_to "I like this!", up_post_path(id: @post.id), method: :patch,
-    :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>
-  <% end %>
   <% if @post.user == current_user %>
     <%= link_to "Edit", edit_post_path,
     :class => "waves-effect waves-light btn grey lighten-1 z-depth-0" %>

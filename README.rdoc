@@ -1,7 +1,7 @@
 == Chirpit
 ChirpIt is my take on integrating Twitter and Reddit functionality.
 
-Users are able to sign up and post their thoguhts. Users are able to follow other users and view thier posts along with those they follow within thier feed.
+Users are able to sign up and post their thoughts. Users are able to follow other users and view their posts along with those they follow within their feed.
 
 A Trending Feed is a collection of all user posts. Users are able to browse this feed and vote on all other posts which will either increase or decrease the posts' position within the trending feed. Users are also able to comment on posts to start a conversation.
 
@@ -9,16 +9,10 @@ Viewers are able to view the Trending Feed but are unable to post comments, add 
 
 === Technologies
 
-*HTML5 & CSS3
-
-*Ruby on Rails
-
-*Materialize CSS
-
-*jQuery
-
-*PostgreSql
-
-*Travis CI & CodeClimate
-
-*Cool Gems - Devise, Doorkeeper, RailsAdmin
+* HTML5 & CSS3
+* Ruby on Rails
+* Materialize CSS
+* jQuery
+* PostgreSql
+* Travis CI & CodeClimate
+* Cool Gems - Devise, Doorkeeper, RailsAdmin

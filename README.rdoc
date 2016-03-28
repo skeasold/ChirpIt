@@ -1,28 +1,24 @@
-== README
+== Chirpit
+ChirpIt is my take on integrating Twitter and Reddit functionality.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users are able to sign up and post their thoguhts. Users are able to follow other users and view thier posts along with those they follow within thier feed.
 
-Things you may want to cover:
+A Trending Feed is a collection of all user posts. Users are able to browse this feed and vote on all other posts which will either increase or decrease the posts' position within the trending feed. Users are also able to comment on posts to start a conversation.
 
-* Ruby version
+Viewers are able to view the Trending Feed but are unable to post comments, add new posts, vote or follow other users. Users can edit only their post and comment content and are unable to vote for their own posts.
 
-* System dependencies
+=== Technologies
 
-* Configuration
+*HTML5 & CSS3
 
-* Database creation
+*Ruby on Rails
 
-* Database initialization
+*Materialize CSS
 
-* How to run the test suite
+*jQuery
 
-* Services (job queues, cache servers, search engines, etc.)
+*PostgreSql
 
-* Deployment instructions
+*Travis CI & CodeClimate
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+*Cool Gems - Devise, Doorkeeper, RailsAdmin

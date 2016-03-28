@@ -22,17 +22,24 @@
         <% if user_signed_in? %>
           <li><%= link_to "My Feed", user_path(id: current_user.id), :class => "grey-text text-darken-3" %></li>
           <li><%= link_to "New Post", new_post_path, :class => "grey-text text-darken-3" %></li>
-          <li><a class="dropdown-button grey-text text-darken-3" href="#!" data-activates="account">My Account<i class="material-icons right">arrow_drop_down</i></a></li>
-            <ul id="account" class="dropdown-content">
-              <li><%= link_to "Edit Profile", edit_user_registration_path, :class => "grey-text text-darken-3" %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
-            </ul>
+          <li><a class="dropdown-button grey-text text-darken-3" href="#!" data-activates="account">
+            My Account - <small><%= current_user.email %></small><i class="material-icons right">arrow_drop_down</i></a></li>
+          <ul id="account" class="dropdown-content">
+            <li><%= link_to "Edit Profile", edit_user_registration_path, :class => "grey-text text-darken-3" %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "grey-text text-darken-3" %></li>
+          </ul>
         <% end %>
       </ul>
     </div>
   </nav>
 </header>
 <main>
+  <% if flash[:notice] %>
+    <div class="container notice center"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="container alert center"><%= flash[:alert] %></div>
+  <% end %>
   <div class="container grey-text text-darken-2">
     <%= yield %>
   </div>

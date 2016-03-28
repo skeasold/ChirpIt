@@ -57,3 +57,4 @@ gem 'badgerbadgerbadger'
 gem 'devise'
 gem 'rails_admin'
 gem 'doorkeeper'
+gem "acts_as_follower"

@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
 
-  # TODO: Add tests
-  # TODO: Add search
-
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -30,9 +27,11 @@ class PostsController < ApplicationController
 
   def create_comment
     @post = current_user.posts.build id: params[:id]
+
     @comment = Comment.new
     @comment.comment_content = params[:comment][:comment_content]
     @comment.post_id = @post.id
+    @comment.user_id = current_user.id
 
     if @comment.save
       flash[:notice] = "Comment successfully created"
@@ -47,6 +46,7 @@ class PostsController < ApplicationController
     @post = Post.find_by id: params[:id]
     @post.views = @post.views + 1
     @post.save
+
     @comment = Comment.new
     @comment.post = @post
   end

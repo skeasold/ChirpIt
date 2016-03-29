@@ -15,6 +15,6 @@ deploy:
     repo: skylarking/ChirpIt
 addons:
   code_climate:
-      repo_token: 5baa4432493c57b8ebcef9da9e1aae9b99747126a36c3ae28588e2ed105642e4
+      repo_token: ac3803c2fe1333a0923e45db7d74ae3dec7b842e304f95d8e7d114b470c6ee9e
 notifications:
   email: false

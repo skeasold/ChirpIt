@@ -51,6 +51,8 @@ group :development do
   gem 'pry'
 end
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 gem 'materialize-sass'
 gem 'kaminari'
 gem 'badgerbadgerbadger'

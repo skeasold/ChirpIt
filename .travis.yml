@@ -13,3 +13,8 @@ deploy:
   app: sking-chirpit
   on:
     repo: skylarking/ChirpIt
+addons:
+  code_climate:
+      repo_token: 5baa4432493c57b8ebcef9da9e1aae9b99747126a36c3ae28588e2ed105642e4
+notifications:
+  email: false

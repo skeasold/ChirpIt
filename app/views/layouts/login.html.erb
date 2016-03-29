@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChirpIt - A Reddit/Twitter Combination</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div class="container grey-text text-darken-2">
+      <% if flash[:notice] %>
+        <div class="container notice center"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="container alert center"><%= flash[:alert] %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </main>
+</body>
+</html>

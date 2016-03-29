@@ -1,4 +1,13 @@
-== Chirpit
+= \Chirpit
+
+GitHub :: https://github.com/skylarking/ChirpIt
+Heroku :: https://chirpit.skylarcking.com
+Issues :: https://github.com/skylarking/ChirpIt/issues
+Build :: {<img src="https://travis-ci.org/skylarking/ChirpIt.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/skylarking/ChirpIt]
+Code Quality :: {<img src="https://codeclimate.com/github/skylarking/ChirpIt/badges/gpa.svg" alt="Code Climate">}[https://codeclimate.com/github/skylarking/ChirpIt]
+Test Coverage :: {<img src="https://codeclimate.com/github/skylarking/ChirpIt/badges/coverage.svg" />}[https://codeclimate.com/github/skylarking/ChirpIt/coverage]
+
+== About
 ChirpIt is my take on integrating Twitter and Reddit functionality.
 
 Users are able to sign up and post their thoughts. Users are able to follow other users and view their posts along with those they follow within their feed.
@@ -7,7 +16,7 @@ A Trending Feed is a collection of all user posts. Users are able to browse this
 
 Viewers are able to view the Trending Feed but are unable to post comments, add new posts, vote or follow other users. Users can edit only their post and comment content and are unable to vote for their own posts.
 
-=== Technologies
+== Technologies
 
 * HTML5 & CSS3
 * Ruby on Rails

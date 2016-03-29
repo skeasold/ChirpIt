@@ -46,23 +46,22 @@ class UserLoginPostVoteTest < Capybara::Rails::TestCase
     assert_content page, "1 vote"
   end
 
-  # TODO: Capybara is not able to find comment field using a variety of different
-  # naming conventions. Need to fix.
-  # test "can vote" do
-  #   visit root_path
-  #   click_link "Sign In"
-  #
-  #   within("#new_user") do
-  #     fill_in "Email", with: "tester123@domain.com"
-  #     fill_in "Password", with: "12345678"
-  #     click_button "Log in"
-  #   end
-  #
-  #   click_link "Test Post"
-  #
-  #   within("#new_comment") do
-  #     fill_in "Comment content", with: "Test comment"
-  #     click_button "Create comment"
-  #   end
-  # end
+  test "can add comment" do
+    visit root_path
+    click_link "Sign In"
+
+    within("#new_user") do
+      fill_in "Email", with: "tester123@domain.com"
+      fill_in "Password", with: "12345678"
+      click_button "Log in"
+    end
+
+    click_link "Test Post"
+
+    within("#new_comment") do
+      fill_in "What do you think?", with: "Test comment"
+      click_button "Create Comment"
+    end
+    assert_content page, "Test comment - less than a minute ago by tester123@domain.com"
+  end
 end

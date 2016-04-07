@@ -13,6 +13,8 @@ deploy:
   app: sking-chirpit
   on:
     repo: skylarking/ChirpIt
+  run:
+    - "rake db:migrate"
 addons:
   code_climate:
       repo_token: ac3803c2fe1333a0923e45db7d74ae3dec7b842e304f95d8e7d114b470c6ee9e
